@@ -1,1 +1,101 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <button class="toggle-button" onclick="toggleMode()">Dark/Light</button>
+    <div class="container">
+        <h1>Welcome to My Personal Landing Page</h1>
+        <p>Hi, I'm Bogdan, a passionate developer with interests in technology, development, neuroscience, space, robotics, and brain-computer interfaces. I love exploring the latest advancements in these fields and sharing my knowledge with others.</p>
+        <p>Feel free to connect with me and explore my work. Let's dive into the fascinating world of tech together!</p>
+    </div>
+    <div class="interests">
+        <div class="interest-block">
+            <h2>Technology</h2>
+            <p>Technology is constantly evolving and shaping our world. From AI to blockchain, I am fascinated by the endless possibilities and innovations that technology brings.</p>
+        </div>
+        <div class="interest-block">
+            <h2>Development</h2>
+            <p>As a developer, I enjoy creating solutions that solve real-world problems. I am proficient in various programming languages and frameworks, and I love to learn new tools and techniques.</p>
+        </div>
+        <div class="interest-block">
+            <h2>Neuroscience</h2>
+            <p>Neuroscience explores the complexities of the brain and nervous system. I am intrigued by how our brain functions and how we can leverage this knowledge to improve mental health and cognitive abilities.</p>
+        </div>
+        <div class="interest-block">
+            <h2>Space</h2>
+            <p>Space exploration is one of the most exciting frontiers. The mysteries of the universe and the potential for discovering new worlds captivate my imagination.</p>
+        </div>
+        <div class="interest-block">
+            <h2>Robotics</h2>
+            <p>Robotics combines engineering and computer science to create machines that can perform tasks autonomously. I am passionate about the advancements in robotics and their applications in various industries.</p>
+        </div>
+        <div class="interest-block">
+            <h2>Brain-Computer Interfaces</h2>
+            <p>Brain-computer interfaces (BCIs) enable direct communication between the brain and external devices. This technology has the potential to revolutionize how we interact with machines and enhance human capabilities.</p>
+        </div>
+    </div>
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.toggle-button');
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+    <script>
+    // Create custom cursor
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor';
+    document.body.appendChild(cursor);
+
+    // Create cursor trail
+    const trailCount = 5;
+    const trails = [];
+    for (let i = 0; i < trailCount; i++) {
+        const trail = document.createElement('div');
+        trail.classList.add('cursor-trail');
+        document.body.appendChild(trail);
+        trails.push(trail);
+    }
+
+    // Update cursor and trail positions
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        trails.forEach((trail, index) => {
+            setTimeout(() => {
+                trail.style.left = e.clientX - 50 + 'px';
+                trail.style.top = e.clientY - 50 + 'px';
+            }, index * 50);
+        });
+    });
+    </script>
+        <div class="earth-container">
+            <div class="earth">
+                <div class="continent north-america"></div>
+                <div class="continent south-america"></div>
+                <div class="continent europe-africa"></div>
+                <div class="continent asia-australia"></div>
+            </div>
+        </div>
+    
+        <script>
+            // Existing script content
+    
+            // Add this new script for scroll-based rotation
+            window.addEventListener('scroll', () => {
+                const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                const rotation = scrollPercentage * 360;
+                document.querySelector('.earth').style.transform = `rotateY(${rotation}deg)`;
+            });
+        </script>
+</body>
+</html>
+
+
